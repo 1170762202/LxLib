@@ -20,6 +20,10 @@ public class ActivityManage {
         activityStack.push(activity);
     }
 
+    public static void removeActivity(Activity activity) {
+        activityStack.remove(activity);
+    }
+
     /**
      * 获取当前Activity（堆栈中最后一个压入的）
      */
