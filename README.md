@@ -1,4 +1,4 @@
-# LxLib
+# LxLib（有意向一起维护的联系qq:1170762202）
 #### 1.基于RxJava+Retrofit+MVP封装了BaseMvp,继承NewBasePresenter快速实现接口的编写
 
 #### 2.自定义view
