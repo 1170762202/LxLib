@@ -1,5 +1,7 @@
 package com.zlx.lxlib.base.base_mvp.presenter;
 
+import com.zlx.lxlib.util.LogUtil;
+
 /**
  * @date: 2019\2\25 0025
  * @author: zlx
@@ -16,6 +18,7 @@ public class BasePresenter<T extends BaseContact.BaseView> implements BaseContac
     @Override
     public void detachView() {
         if (mView != null) {
+            LogUtil.e("detach");
             mView = null;
         }
     }

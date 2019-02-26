@@ -20,15 +20,22 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".ui.DragViewAc">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".ui.PhotoBrowseAc"
+            android:theme="@style/FullScreenStyle">
+        </activity>
+        <activity android:name=".ui.multi.LoginMultiAc" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".ui.PhotoBrowseAc"
-            android:theme="@style/FullScreenStyle">
         </activity>
     </application>
 

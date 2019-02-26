@@ -6,10 +6,15 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.zlx.lxlib.R;
+import com.zlx.lxlib.base.base_ac.BaseAc;
 import com.zlx.lxlib.base.base_ac.BaseMvpAc;
+import com.zlx.lxlib.base.base_mvp.NewBasePresenter;
+import com.zlx.lxlib.base.base_mvp.presenter.BaseContact;
 import com.zlx.lxlib.util.LogUtil;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -21,7 +26,7 @@ import butterknife.OnClick;
  * @author: zlx
  * @description:
  */
-public class LoginAc extends BaseMvpAc<LoginPresenter> {
+public class LoginAc extends BaseMvpAc {
 
     @BindView(R.id.btn_login)
     Button btnLogin;
@@ -40,35 +45,47 @@ public class LoginAc extends BaseMvpAc<LoginPresenter> {
 
     }
 
-    @Override
-    protected LoginPresenter initPresenter() {
-        return new LoginPresenter();
-    }
-
-
-    @Override
-    public void onRequestSuccess(String s) {
-    }
-
-    @Override
-    public void onRequestFailed(String s) {
-
-    }
-
-    @Override
-    public void onRequestError(String s) {
-        super.onRequestError(s);
-    }
-
-    @Override
-    public Map<String, Object> getRequestMap() {
-        return new HashMap<>();
-    }
-
 
     @OnClick(R.id.btn_login)
     public void onViewClicked() {
         LogUtil.e("login");
-        mPresenter.login();
+        loginPresenter.login();
+    }
+
+    private LoginPresenter loginPresenter = new LoginPresenter(new BaseContact.IViewData() {
+        @Override
+        public Map<String, Object> getRequestMap() {
+            return new HashMap<>();
+        }
+
+        @Override
+        public void onRequestStart() {
+
+        }
+
+        @Override
+        public void onRequestSuccess(String s) {
+
+        }
+
+        @Override
+        public void onRequestFailed(String s) {
+
+        }
+
+        @Override
+        public void onRequestError(String s) {
+
+        }
+
+        @Override
+        public void onRequestFinished() {
+
+        }
+    });
+
+    @Override
+    protected List<? extends NewBasePresenter> getPresenters() {
+        return Arrays.asList(loginPresenter);
     }
 }

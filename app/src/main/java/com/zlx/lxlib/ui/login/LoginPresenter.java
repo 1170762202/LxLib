@@ -11,6 +11,10 @@ import com.zlx.lxlib.base.base_mvp.NewBasePresenter;
  */
 public class LoginPresenter extends NewBasePresenter {
 
+    public LoginPresenter(BaseContact.IViewData iRealView) {
+        super(iRealView);
+    }
+
     public void login(){
         post(WebUrl.URL_LOGIN, mView.getRequestMap(), new BaseContact.BaseView() {
             @Override
@@ -39,5 +43,6 @@ public class LoginPresenter extends NewBasePresenter {
             }
         });
     }
+
 }
 

@@ -1,24 +1,24 @@
 package com.zlx.lxlib.base.base_mvp;
 
-import com.alibaba.fastjson.JSON;
 import com.zlx.lxlib.base.base_mvp.mobdel.BaseModel;
 import com.zlx.lxlib.base.base_mvp.mobdel.IBaseModelListener;
 import com.zlx.lxlib.base.base_mvp.presenter.BaseContact;
 import com.zlx.lxlib.base.base_mvp.presenter.BasePresenter;
 import com.zlx.lxlib.util.LogUtil;
 
+import java.lang.ref.WeakReference;
 import java.util.Map;
 
 /**
- * @date: 2019\2\25 0025
- * @author: zlx
- * @description:
+ * Created by zlx on 2017/6/26.
  */
-public class NewBasePresenter extends BasePresenter<BaseContact.IViewData> {
+
+public abstract class NewBasePresenter extends BasePresenter<BaseContact.IViewData> {
     private BaseModel baseModel;
 
-    public NewBasePresenter() {
+    public NewBasePresenter(BaseContact.IViewData iRealView) {
         baseModel = new BaseModel();
+        attachView(iRealView);
     }
 
     public void post(String url, Map<String, Object> map, final BaseContact.BaseView baseView){
@@ -56,4 +56,6 @@ public class NewBasePresenter extends BasePresenter<BaseContact.IViewData> {
             }
         });
     }
+
+
 }
