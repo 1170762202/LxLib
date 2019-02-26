@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.gyf.barlibrary.ImmersionBar;
 import com.zlx.lxlib.R;
 import com.zlx.lxlib.base.base_ac.BaseAc;
 
@@ -45,6 +46,7 @@ public class DragViewAc extends BaseAc {
 
     @Override
     protected void initViews() {
+        ImmersionBar.with(this).transparentStatusBar().init();
         setSharedElementCallback(this);
         list.add("http://img4.duitang.com/uploads/item/201210/06/20121006120433_CZXuC.jpeg");
         list.add("http://69.171.66.103:8888/headImg/20190201/ea7f10bc7398596d475b1caa6f81099e.jpg");
