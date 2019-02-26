@@ -1,14 +1,9 @@
-package com.zlx.lxlib.base.base_Fg;
+package com.zlx.lxlib.base.base_fg;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.zlx.lxlib.base.base_ac.BaseAc;
 import com.zlx.lxlib.base.base_mvp.presenter.BaseContact;
 
 /**

@@ -47,11 +47,6 @@ public class LoginAc extends BaseMvpAc<LoginPresenter> {
 
 
     @Override
-    public void onRequestStart() {
-        super.onRequestStart();
-    }
-
-    @Override
     public void onRequestSuccess(String s) {
     }
 

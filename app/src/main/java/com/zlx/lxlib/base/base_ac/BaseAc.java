@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.zlx.lxlib.base.base_manage.ActivityManage;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -20,6 +22,7 @@ public abstract class BaseAc extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+        ActivityManage.addActivity(this);
         mUnBinder = ButterKnife.bind(this);
         initViews();
     }
@@ -37,5 +40,6 @@ public abstract class BaseAc extends AppCompatActivity {
         if (mUnBinder != Unbinder.EMPTY) {
             mUnBinder.unbind();
         }
+        ActivityManage.finishActivity(this);
     }
 }

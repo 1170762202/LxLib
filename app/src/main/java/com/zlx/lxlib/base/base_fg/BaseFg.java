@@ -1,4 +1,4 @@
-package com.zlx.lxlib.base.base_Fg;
+package com.zlx.lxlib.base.base_fg;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
