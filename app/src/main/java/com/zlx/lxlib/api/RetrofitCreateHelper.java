@@ -7,6 +7,7 @@ import android.util.Log;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -38,8 +39,15 @@ public class RetrofitCreateHelper {
                         Request originalRequest = chain.request();
 //                        String token = (String) SPUtil.get(context, SPUtil.TOKEN, "");
                         Log.e("TAG", "头参： " + "");
+
+                        HttpUrl url = originalRequest.url()
+                                .newBuilder()
+                                .addQueryParameter("userId", "")
+                                .addQueryParameter("id", "")
+                                .build();
                         Request authorised = originalRequest.newBuilder()
                                 .header("x-token", "")
+                                .url(url)
                                 .build();
 
                         return chain.proceed(authorised);

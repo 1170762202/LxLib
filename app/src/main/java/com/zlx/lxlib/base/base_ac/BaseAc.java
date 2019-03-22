@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.zlx.lxlib.base.base_manage.ActivityManage;
 
 import butterknife.ButterKnife;
@@ -14,7 +15,7 @@ import butterknife.Unbinder;
  * @author: zlx
  * @description:
  */
-public abstract class BaseAc extends AppCompatActivity {
+public abstract class BaseAc extends RxAppCompatActivity {
 
     private Unbinder mUnBinder;
 

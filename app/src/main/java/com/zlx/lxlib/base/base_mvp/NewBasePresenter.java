@@ -6,7 +6,6 @@ import com.zlx.lxlib.base.base_mvp.presenter.BaseContact;
 import com.zlx.lxlib.base.base_mvp.presenter.BasePresenter;
 import com.zlx.lxlib.util.LogUtil;
 
-import java.lang.ref.WeakReference;
 import java.util.Map;
 
 /**

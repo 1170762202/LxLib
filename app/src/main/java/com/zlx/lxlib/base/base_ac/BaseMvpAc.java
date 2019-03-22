@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.zlx.lxlib.base.base_mvp.NewBasePresenter;
-import com.zlx.lxlib.base.base_mvp.presenter.BaseContact;
 
 import java.util.List;
 
