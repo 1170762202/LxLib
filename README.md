@@ -3,7 +3,7 @@
 
 #### 2.等等，还没完哦，陆续维护中............
 
-#### 谷歌在2018年的I/O大会上推出了[Jetpack](https://developer.android.google.cn/guide/)的概念，意图在于统一框架与UI组件。所以我也将项目架构往这一概念上靠齐。
+#### 谷歌在2018年的I/O大会上推出了[Jetpack](https://developer.android.google.cn/topic/libraries/architecture/viewmodel)的概念，意图在于统一框架与UI组件。所以我也将项目架构往这一概念上靠齐。
 
 # step1.新建LoginViewModel extends HttpViewModel
 
