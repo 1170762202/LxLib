@@ -2,9 +2,6 @@ package com.zlx.lxlib.base;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,6 +10,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -20,7 +20,7 @@ import butterknife.Unbinder;
  * Author: Zlx on 2018/3/14.
  * Email:1170762202@qq.com
  */
-public abstract class BaseDialogFragment extends DialogFragment  {
+public abstract class BaseDialogFragment extends DialogFragment {
 
     protected Context context;
 

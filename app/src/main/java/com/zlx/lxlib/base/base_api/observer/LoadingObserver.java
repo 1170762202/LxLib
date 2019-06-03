@@ -1,4 +1,4 @@
-package com.zlx.lxlib.base.base_retrofit;
+package com.zlx.lxlib.base.base_api.observer;
 
 /**
  * @date: 2019\3\22 0022
@@ -7,55 +7,47 @@ package com.zlx.lxlib.base.base_retrofit;
  * @description:
  */
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
+import com.zlx.lxlib.MyApp;
 
 import io.reactivex.disposables.Disposable;
 
 /**
  * Observer加入加载框
- * @param <T>
+ *
+ * @param
  */
-public abstract class MyObserver<T> extends BaseObserver<T> {
-    private boolean mShowDialog;
-    private ProgressDialog dialog;
-    private Context mContext;
+public abstract class LoadingObserver extends BaseObserver {
     private Disposable d;
 
-    public MyObserver(Context context, Boolean showDialog) {
-        mContext = context;
-        mShowDialog = showDialog;
-    }
+    private Context mContext;
 
-    public MyObserver(Context context) {
-        this(context,true);
+    public LoadingObserver() {
+        mContext = MyApp.instance;
     }
 
     @Override
     public void onSubscribe(Disposable d) {
         this.d = d;
         if (!isConnected(mContext)) {
-            Toast.makeText(mContext,"未连接网络",Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "未连接网络", Toast.LENGTH_SHORT).show();
             if (d.isDisposed()) {
                 d.dispose();
             }
         } else {
-            if (dialog == null && mShowDialog == true) {
-                dialog = new ProgressDialog(mContext);
-                dialog.setMessage("正在加载中");
-                dialog.show();
-            }
+            /*正在加载中*/
         }
     }
+
     @Override
     public void onError(Throwable e) {
         if (d.isDisposed()) {
             d.dispose();
         }
-        hidDialog();
+        /*隐藏加载*/
         super.onError(e);
     }
 
@@ -64,26 +56,21 @@ public abstract class MyObserver<T> extends BaseObserver<T> {
         if (d.isDisposed()) {
             d.dispose();
         }
-        hidDialog();
+        /*隐藏加载*/
         super.onComplete();
     }
 
-    public void hidDialog() {
-        if (dialog != null && mShowDialog == true)
-            dialog.dismiss();
-        dialog = null;
-    }
+
     /**
      * 是否有网络连接，不管是wifi还是数据流量
+     *
      * @param context
      * @return
      */
-    public static boolean isConnected(Context context)
-    {
+    public static boolean isConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = cm.getActiveNetworkInfo();
-        if (info == null)
-        {
+        if (info == null) {
             return false;
         }
         boolean available = info.isAvailable();

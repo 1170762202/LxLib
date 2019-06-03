@@ -1,4 +1,4 @@
-package com.zlx.lxlib.base.base_retrofit;
+package com.zlx.lxlib.base.base_api.interceptor;
 
 import android.util.Log;
 
@@ -12,7 +12,7 @@ import okhttp3.Request;
  *  TODO Log拦截器代码
  */
 public class LogInterceptor implements Interceptor {
-    private String TAG = "okhttp";
+    private String TAG = "LogInterceptor";
 
     @Override
     public okhttp3.Response intercept(Chain chain) throws IOException {

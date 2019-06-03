@@ -1,11 +1,13 @@
 package com.zlx.lxlib.base.base_ac;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 import com.zlx.lxlib.base.base_mvp.NewBasePresenter;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModel;
 
 /**
  * @date: 2019\2\26 0026
@@ -13,26 +15,22 @@ import java.util.List;
  * @email: 1170762202@qq.com
  * @description:
  */
-public abstract class BaseMvpAc extends BaseAc {
+public abstract class BaseHttpAc<T extends ViewModel> extends BaseAc {
 
 
-    private List<? extends NewBasePresenter> presenters;
+    protected T viewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenters = getPresenters();
+        viewModel = bindViewModel();
     }
 
-    protected abstract List<? extends NewBasePresenter> getPresenters();
+    protected abstract T bindViewModel();
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        for (NewBasePresenter presenter : presenters) {
-            presenter.detachView();
-        }
-
     }
 }

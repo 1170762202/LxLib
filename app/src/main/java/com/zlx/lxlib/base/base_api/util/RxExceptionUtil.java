@@ -1,4 +1,4 @@
-package com.zlx.lxlib.base.base_retrofit;
+package com.zlx.lxlib.base.base_api.util;
 
 /**
  * @date: 2019\3\22 0022
@@ -8,9 +8,11 @@ package com.zlx.lxlib.base.base_retrofit;
  */
 
 import org.json.JSONException;
+
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.text.ParseException;
+
 import retrofit2.HttpException;
 
 /**

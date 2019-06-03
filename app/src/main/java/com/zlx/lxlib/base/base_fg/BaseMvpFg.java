@@ -2,9 +2,10 @@ package com.zlx.lxlib.base.base_fg;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 import com.zlx.lxlib.base.base_mvp.presenter.BaseContact;
+
+import androidx.annotation.Nullable;
 
 /**
  * @date: 2019\2\25 0025

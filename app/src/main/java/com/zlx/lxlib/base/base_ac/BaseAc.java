@@ -1,12 +1,11 @@
 package com.zlx.lxlib.base.base_ac;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.zlx.lxlib.base.base_manage.ActivityManage;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -15,7 +14,7 @@ import butterknife.Unbinder;
  * @author: zlx
  * @description:
  */
-public abstract class BaseAc extends RxAppCompatActivity {
+public abstract class BaseAc extends AppCompatActivity {
 
     private Unbinder mUnBinder;
 

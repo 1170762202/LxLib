@@ -1,6 +1,6 @@
 package com.zlx.lxlib.base.base_mvp.mobdel;
 
-import com.zlx.lxlib.api.HttpUtil;
+import com.zlx.lxlib.base.base_api.util.HttpUtil;
 
 import java.util.Map;
 
