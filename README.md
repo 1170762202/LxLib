@@ -77,7 +77,7 @@ public class LoginAc extends BaseHttpAc<LoginViewModel> {
     }
 ```
 onFailure(Throwable e, String errorMsg) 方法中
-errorMsg 可以自定义为HttpViewModel 中的静态变量，对应相应的逻辑处理，并在接口回调处判断，如上示例所书
+errorMsg 可以自定义为HttpViewModel 中的静态变量，对应相应的逻辑处理，并在接口回调处判断，如上示例所书 
 
 
 
