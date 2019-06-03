@@ -1,14 +1,25 @@
-# LxLib（有意向一起维护的联系qq:1170762202）
-#### 1.基于RxJava+Retrofit+MVP封装了BaseMvp,继承NewBasePresenter快速实现接口的编写
+# LxLib
+#### 1.基于RxJava+Retrofit+ViewModel封装了BaseHttpAc,继承并快速实现接口的编写
 
 #### 2.等等，还没完哦，陆续维护中............
 
-# BaseMvp
+#### 谷歌在2018年的I/O大会上推出了[Jetpack](https://developer.android.google.cn/guide/)的概念，意图在于统一框架与UI组件。所以我也将项目架构往这一概念上靠齐。
 
-新建activity继承BaseMvpAc,重写接口请求方法，示例：
+# step1.新建LoginViewModel extends HttpViewModel
 
 ```JAVA
-public class LoginAc extends BaseMvpAc {
+public class LoginViewModel extends HttpViewModel {
+
+    public LiveData<String> login(Map<String, Object> map) {
+        return requestPost(WebUrl.URL_LOGIN, map);
+    }
+}
+```
+
+# step2.新建LoginAc继承BaseHttpAc,重写接口请求方法，示例：
+
+```JAVA
+public class LoginAc extends BaseHttpAc<LoginViewModel> {
 
     @BindView(R.id.btn_login)
     Button btnLogin;
@@ -29,52 +40,16 @@ public class LoginAc extends BaseMvpAc {
 
     @OnClick(R.id.btn_login)
     public void onViewClicked() {
-        loginPresenter.login();
+        viewModel.login(MapSet.getNullMap()).observe(this, s -> {
+            Log.e("onChanged:" + s);
+        });
+
     }
 
-    /**
-     * 新建一个presenter继承NewBasePresenter重写对应的方法,下次新建接口直接复制，改个url地址就ok
-     */
-    private LoginPresenter loginPresenter = new LoginPresenter(new BaseContact.IViewData() {
-        @Override
-        public Map<String, Object> getRequestMap() {
-            return new HashMap<>();
-        }
 
-        @Override
-        public void onRequestStart() {
-
-        }
-
-        @Override
-        public void onRequestSuccess(String s) {
-
-        }
-
-        @Override
-        public void onRequestFailed(String s) {
-
-        }
-
-        @Override
-        public void onRequestError(String s) {
-
-        }
-
-        @Override
-        public void onRequestFinished() {
-
-        }
-    });
-
-    /**
-     * 返回presenter 列表给mvpac，ondestroy时解绑 pv防止内存泄漏
-     *
-     * @return
-     */
     @Override
-    protected List<? extends NewBasePresenter> getPresenters() {
-        return Arrays.asList(loginPresenter);
+    protected LoginViewModel bindViewModel() {
+        return ViewModelUtil.create(LoginViewModel.class);
     }
 }
 ```
