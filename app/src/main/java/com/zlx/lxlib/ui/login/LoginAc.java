@@ -1,17 +1,14 @@
 package com.zlx.lxlib.ui.login;
 
-import android.os.Build;
 import android.widget.Button;
 
 import com.zlx.lxlib.R;
 import com.zlx.lxlib.api.LoginViewModel;
 import com.zlx.lxlib.base.base_ac.BaseHttpAc;
 import com.zlx.lxlib.base.base_api.bean.MapSet;
+import com.zlx.lxlib.base.base_api.view_model.http.HttpViewModel;
 import com.zlx.lxlib.base.base_api.view_model.util.ViewModelUtil;
 import com.zlx.lxlib.util.Log;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -44,6 +41,9 @@ public class LoginAc extends BaseHttpAc<LoginViewModel> {
     public void onViewClicked() {
         viewModel.login(MapSet.getNullMap()).observe(this, s -> {
             Log.e("onChanged:" + s);
+            if (!s.equals(HttpViewModel.request_error)){
+                /*逻辑处理*/
+            }
         });
 
     }

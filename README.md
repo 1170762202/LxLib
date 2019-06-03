@@ -42,6 +42,9 @@ public class LoginAc extends BaseHttpAc<LoginViewModel> {
     public void onViewClicked() {
         viewModel.login(MapSet.getNullMap()).observe(this, s -> {
             Log.e("onChanged:" + s);
+            if (!s.equals(HttpViewModel.request_error)){
+                /*逻辑处理*/
+            }
         });
 
     }
@@ -53,6 +56,29 @@ public class LoginAc extends BaseHttpAc<LoginViewModel> {
     }
 }
 ```
+
+#### 扩展用法
+
+#####场景1.根据后台返回code进行不同的逻辑处理
+
+修改BaseObserver onNext 方法
+
+```
+    public void onNext(String response) {
+        Log.e(TAG, "onNext: " + response);
+
+      //在这边对 基础数据 进行统一处理  举个例子：
+        BaseBean baseResponse = JSON.parseObject(response, BaseBean.class);
+        if (baseResponse.getCode() == 200) {
+            onSuccess(response);
+        } else {
+            onFailure(null, HttpViewModel.request_error);
+        }
+    }
+```
+onFailure(Throwable e, String errorMsg) 方法中
+errorMsg 可以自定义为HttpViewModel 中的静态变量，对应相应的逻辑处理，并在接口回调处判断，如上示例所书
+
 
 
 
